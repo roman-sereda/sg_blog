@@ -1,7 +1,9 @@
 <h2> SG Blog </h2>
 
-<ul>
+<ol>
   <% @posts.each do |post| %>
-    <li class="post-title"><%= post.title %></li>
+    <li class="post-title">
+      <%= link_to post.title, "page/id_#{post.id}"%>
+    </li>
   <% end %>
-</ul>
+</ol>

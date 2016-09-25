@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
+
   root "posts#index"
+
+  get "/page/id_:id" => "posts#posts_show_page"
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

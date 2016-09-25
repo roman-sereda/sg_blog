@@ -14,7 +14,11 @@ class RootTest < ActiveSupport::TestCase
     assert_equal 10, page.all("li.post-title").count
   end
 
+  def test_visit_other_page_by_link
+    assert page.has_link?("page_1")
+  end
+
   def create_ten_posts
-    10.times { |n| Post.create(title: "a_#{n}", body: "AAAA") }
+    10.times { |n| Post.create(title: "page_#{n}", body: "AAAA") }
   end
 end
