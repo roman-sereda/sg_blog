@@ -46,7 +46,7 @@ class CreatePostPageTest < ActiveSupport::TestCase
   def test_enter_wrong_body_and_see_error_message
 
     fill_in("title_field", with: "awsasdasdasd")
-    fill_in("body_field", with: "Washington, D.C., formally")
+    fill_in("body_field", with: "Washington, D.C")
     click_button "Create new post"
     assert page.has_content? "You entered wrong data"
 
