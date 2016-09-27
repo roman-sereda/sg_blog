@@ -1,3 +1,6 @@
 10.times do |n|
-  Post.create(title: "a_#{n}", body: "AAAA")
+  Post.create(title: "number_#{n}", body: "abcdefghgklmnopqrs
+  tuvwxyzabcdefghgklmnopqrstuvwxyzabcdefghgklmnopqrstuvwxyzabcdefghgklmnopq
+  rstuvwxyzabcdefghgklmnopqrstuvwxyzabcdefghgklmnopqrstuvwxyzhgklmnopqrstuv
+  wxyzabcdefghgklmnopqrstuvwxyzabcdefghgklmnopqrstuvwxyz")
 end
