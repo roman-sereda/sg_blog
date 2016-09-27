@@ -1,0 +1,16 @@
+<%= form_for @post, url: {action: "create"} do |f| %>
+
+  <p><%= f.text_field :title, placeholder: "Enter title here", id: "title_field"%></p>
+
+  <p><%= f.text_area :body, size: "48x12", placeholder: "Enter post here", id: "body_field" %></p>
+
+    <i><p style="font-size: 10px">*title: 5 - 20 symbols</p>
+    <p style="font-size: 10px">*body from 200 symbols</p></i>
+
+    <p><%= flash[:error] %></p>
+  <%= f.submit "Create new post" %>
+<% end %>
+
+
+
+test

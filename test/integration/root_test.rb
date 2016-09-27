@@ -18,7 +18,19 @@ class RootTest < ActiveSupport::TestCase
     assert page.has_link?("page_1")
   end
 
+  def test_there_is_a_button_create_post
+    assert page.has_button?("Create new post")
+  end
+
+  def test_visit_create_post_page
+    click_button "Create new post"
+    assert page.has_button? "Create new post"
+  end
+
   def create_ten_posts
-    10.times { |n| Post.create(title: "page_#{n}", body: "AAAA") }
+    10.times { |n| Post.create(title: "page_#{n}", body: "abcdefghgklmnopqrs
+    tuvwxyzabcdefghgklmnopqrstuvwxyzabcdefghgklmnopqrstuvwxyzabcdefghgklmnopq
+    rstuvwxyzabcdefghgklmnopqrstuvwxyzabcdefghgklmnopqrstuvwxyzhgklmnopqrstuv
+    wxyzabcdefghgklmnopqrstuvwxyzabcdefghgklmnopqrstuvwxyz") }
   end
 end
