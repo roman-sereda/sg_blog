@@ -1,7 +1,6 @@
-<p style = "font-size: 20px"> <%= @post.title%>
-  (id: <%= @post.id%>)</p>
+<p style = "font-size: 20px"> <%= @post.title%></p>
 
 <p> <%= @post.body%> </p>
 
-<button>Edit post</button>
-<button>Delete post</button>
+<%= button_to "Edit post", edit_post_path, :method => :get, class: "post_title", id: "post_title"%>
+<%= button_to "Delete post", post_path, :method => :delete%>

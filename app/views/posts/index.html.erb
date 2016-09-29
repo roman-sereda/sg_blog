@@ -1,14 +1,11 @@
 <h2> SG Blog </h2>
 
+<%= button_to "Create new post", new_post_path, :method => :get%>
+
 <ol>
   <% @posts.each do |post| %>
     <li class="post-title">
-      <%= link_to post.title, post_path(post.id)%>
+    <%= link_to post.title, post_path(post.id)%>
     </li>
   <% end %>
 </ol>
-
-
-<%= button_to "Create new post", new_post_path, :method => :get%>
-<br>
-<br>

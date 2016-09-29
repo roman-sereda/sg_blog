@@ -12,15 +12,36 @@ class PostsController < ApplicationController
     @post = Post.new
   end
 
-  def create
-    @post=Post.create params.require(:post).permit(:title,:body)
-
-    if @post.valid?
-      @post.save
-      redirect_to "/posts/#{@post.id}"
-    else
-      redirect_to "/posts/new", :flash => { :error => "You entered wrong data" }
-    end
-
+  def edit
+    @post=Post.find(params[:id])
   end
+
+  def destroy
+    @post = Post.find(params[:id])
+    @post.destroy
+    redirect_to "/"
+  end
+
+  def update
+    @post = Post.update(params[:id], post_params)
+    check_text_validation
+  end
+
+  def create
+    @post=Post.create post_params
+    check_text_validation
+  end
+
+  def post_params
+    params.require(:post).permit(:title, :body)
+  end
+
+  def check_text_validation
+    if @post.valid?
+      redirect_to post_path(@post.id)
+    else
+      redirect_to new_post_path, :flash => { :error => "You entered wrong data" }
+    end
+  end
+
 end

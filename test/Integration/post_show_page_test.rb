@@ -2,7 +2,7 @@ require "test_helper"
 
 class PostsShowPageTest < ActiveSupport::TestCase
   def setup
-    create_test_post
+    create_post
     visit "/posts/1"
   end
 
@@ -27,7 +27,24 @@ class PostsShowPageTest < ActiveSupport::TestCase
     assert page.has_button? "Delete post"
   end
 
-  def create_test_post
+  def test_delete_post
+
+    click_button "Delete post"
+    assert !(page.has_content?"testpost")
+    create_post
+
+  end
+
+  def test_edit_post
+
+    click_button "Edit post"
+    fill_in 'title_field', with: 'testpost2'
+    click_button "Update Post"
+    assert page.has_content?"testpost2"
+
+  end
+
+  def create_post
     Post.create title: "testpost", body: 'Washington, D.C., formally
     the District of Columbia and commonly referred to as "Washington",
     "the District", or simply "D.C.", is the capital of the United States.

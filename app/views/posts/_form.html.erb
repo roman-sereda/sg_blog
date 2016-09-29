@@ -1,0 +1,9 @@
+<%= form_for @post do |post| %>
+
+  <p style="color: red"><%= flash[:error] %></p>
+
+     <%= post.text_field :title, placeholder: "Enter title here", id: "title_field"%>
+  <p><%= post.text_area :body, placeholder: "Enter post here", id: "body_field", size: "48x12" %></p>
+
+  <%= post.submit %>
+<% end %>

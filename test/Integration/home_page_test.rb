@@ -1,6 +1,6 @@
 require "test_helper"
 
-class RootTest < ActiveSupport::TestCase
+class HamePageTest < ActiveSupport::TestCase
   def setup
     create_ten_posts
     visit "/"
@@ -24,7 +24,7 @@ class RootTest < ActiveSupport::TestCase
 
   def test_visit_create_post_page
     click_button "Create new post"
-    assert page.has_button? "Create new post"
+    assert page.has_button? "Create Post"
   end
 
   def create_ten_posts
