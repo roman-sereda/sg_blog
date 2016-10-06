@@ -2,10 +2,7 @@
 
 <%= button_to "Create new post", new_post_path, :method => :get%>
 
-<ol>
   <% @posts.each do |post| %>
-    <li class="post-title">
     <%= link_to post.title, post_path(post.id)%>
-    </li>
+    <%= get_limited_version(post.body) %>
   <% end %>
-</ol>
