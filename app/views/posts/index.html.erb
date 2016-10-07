@@ -1,8 +1,6 @@
-<h2> SG Blog </h2>
-
-<%= button_to "Create new post", new_post_path, :method => :get%>
-
-  <% @posts.each do |post| %>
-    <%= link_to post.title, post_path(post.id)%>
-    <%= get_limited_version(post.body) %>
-  <% end %>
+  <div class="posts-block"><% @posts.each do |post| %>
+    <div class="post-all">
+      <h2><%= link_to post.title, post_path(post.id), class: "post-title"%></h2>
+      <p class="post-body"><%= get_limited_version(post.body) %><p>
+    </div>
+  <% end %></div>
