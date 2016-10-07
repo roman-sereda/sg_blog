@@ -1,6 +1,13 @@
-<p style = "font-size: 20px"> <%= @post.title%></p>
+<div class="posts-block">
+  <div class="post-all">
+    <h2><%= @post.title%></h2>
+    <%= @post.body%>
+  </div>
 
-<p> <%= @post.body%> </p>
+<br>
 
-<%= button_to "Edit post", edit_post_path, :method => :get, class: "post_title", id: "post_title"%>
-<%= button_to "Delete post", post_path, :method => :delete%>
+  <div >
+    <%= button_to "Edit post", edit_post_path, :method => :get, class: "button", id: "post_title"%>
+    <%= button_to "Delete post", post_path, class: "button", :method => :delete%>
+  </div>
+</div>

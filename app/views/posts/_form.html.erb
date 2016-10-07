@@ -1,9 +1,12 @@
 <%= form_for @post do |post| %>
 
-  <p style="color: red"><%= flash[:error] %></p>
+  <div class="post-form">
+    <p style="color: red"><%= flash[:error] %></p>
 
-     <%= post.text_field :title, placeholder: "Enter title here", id: "title_field"%>
-  <p><%= post.text_area :body, placeholder: "Enter body here", id: "body_field", size: "48x12" %></p>
-
-  <%= post.submit choose_button_name(@post.body) %>
+    <%= post.text_field :title, placeholder: "Enter title here", id: "title_field", size: "78"%>
+    <br><br>
+    <%= post.text_area :body, placeholder: "Enter body here", id: "body_field", size: "78x18" %>
+    <br><br>
+    <%= post.submit choose_button_name(@post.body), class: "button"%>
+  </div>
 <% end %>
