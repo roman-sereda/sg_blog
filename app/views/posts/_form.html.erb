@@ -1,15 +1,19 @@
+<div class="col-sm-2"></div>
+<div class="col-sm-8" style="text-align: center">
 <%= form_for @post do |post| %>
 
   <div class="post-form">
     <p style="color: red"><%= flash[:error] %></p>
 
-    <%= post.text_field :title, placeholder: "Enter title here", id: "title_field", size: "78"%>
+    <%= post.text_field :title, placeholder: "Enter title here",  id: "title_field", size: "78"%>
     <br><br>
     <%= post.text_area :body, placeholder: "Enter body here", id: "body_field", size: "78x18" %>
     <br><br>
     <%= post.file_field :image%>
     <br><br>
-    <%= post.submit choose_button_name(@post.body), class: "button"%>
+    <%= post.submit choose_button_name(@post.body), class: "btn btn-default"%>
   </div>
 
 <% end %>
+</div>
+<div class="col-sm-2"></div>

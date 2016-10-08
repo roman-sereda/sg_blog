@@ -1,15 +1,13 @@
-<div class="posts-block">
-  <div class="post-all" style="text-align: center">
-    <h2><%= @post.title%></h2>
-    <div><%= image_tag @post.image%></div>
-    <br>
-    <div style="text-align: left"><%= @post.body%></div>
+<div class="col-sm-2"></div>
+<div class="col-sm-8">
+  <div style="text-align: center"><h2><%= @post.title%></h2>
+    <%= image_tag @post.image, class: "show-image" %>
+    <br><br>
   </div>
 
-<br>
+  <%= @post.body%>
+  <%= button_to "Edit post", edit_post_path, :method => :get, class: "btn btn-default", id: "post_title"%>
+  <%= button_to "Delete post", post_path, class: "btn btn-default", :method => :delete%>
 
-  <div >
-    <%= button_to "Edit post", edit_post_path, :method => :get, class: "button", id: "post_title"%>
-    <%= button_to "Delete post", post_path, class: "button", :method => :delete%>
   </div>
-</div>
+<div class="col-sm-2"></div>
