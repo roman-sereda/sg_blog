@@ -9,7 +9,7 @@
     <br><br>
     <%= post.text_area :body, placeholder: "Enter body here", id: "body_field", size: "78x18" %>
     <br><br>
-    <%= post.file_field :image%>
+    <%= post.file_field :image, class: "btn btn-default"%>
     <br><br>
     <%= post.submit choose_button_name(@post.body), class: "btn btn-default"%>
   </div>
