@@ -7,11 +7,11 @@ class CreatePostPageTest < ActiveSupport::TestCase
   end
 
   def test_is_there_create_button
-    assert page.has_button? "Create Post"
+    assert page.has_button? "Create post"
   end
 
   def test_click_button_and_see_error_message
-    click_button "Create Post"
+    click_button "Create post"
     assert page.has_content? "You entered wrong data"
   end
 
@@ -24,7 +24,7 @@ class CreatePostPageTest < ActiveSupport::TestCase
    Residence Act on July 16, 1790, approved the creation of a capital
    district located along the Potomac River on the countrys East Coast.'
 
-    click_button "Create Post"
+    click_button "Create post"
     assert page.has_selector? 'input'
 
   end
@@ -38,7 +38,7 @@ class CreatePostPageTest < ActiveSupport::TestCase
     The signing of the Residence Act on July 16, 1790, approved the creation
     of a capital district located along the Potomac River on the countrys
     East Coast.'
-    click_button "Create Post"
+    click_button "Create post"
     assert page.has_content? "You entered wrong data"
 
   end
@@ -52,7 +52,7 @@ class CreatePostPageTest < ActiveSupport::TestCase
     The signing of the Residence Act on July 16, 1790, approved the creation
     of a capital district located along the Potomac River on the countrys
     East Coast.'
-    click_button "Create Post"
+    click_button "Create post"
     assert page.has_content? "You entered wrong data"
 
   end
@@ -61,7 +61,7 @@ class CreatePostPageTest < ActiveSupport::TestCase
 
     fill_in 'title_field', with: 'Washington, D.C'
     fill_in 'body_field', with: 'Washington, D.C'
-    click_button "Create Post"
+    click_button "Create post"
     assert page.has_content? "You entered wrong data"
 
   end
