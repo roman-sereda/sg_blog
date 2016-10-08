@@ -1,7 +1,9 @@
 <div class="posts-block">
-  <div class="post-all">
+  <div class="post-all" style="text-align: center">
     <h2><%= @post.title%></h2>
-    <%= @post.body%>
+    <div><%= image_tag @post.image%></div>
+    <br>
+    <div style="text-align: left"><%= @post.body%></div>
   </div>
 
 <br>

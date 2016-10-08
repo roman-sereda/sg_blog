@@ -3,7 +3,8 @@
   background-color: #ffffff;
   border-radius: 25px;
   margin: 0 auto;
-  width: 60%;
+  margin-left: 15%;
+  margin-right: 15%;
 }
 
 .post-form{
@@ -11,7 +12,7 @@
 }
 
 .post-all{
-  margin-top: 25px;
+  margin-top: 5px;
 }
 
 .post-all .post-title{
@@ -34,4 +35,20 @@
 #post_title{
   float: left;
   margin: 0px 5px 0px 5px;
+}
+
+.homepage-post-image{
+  max-width: 100px;
+  margin-right: 10px;
+  margin-bottom: 25px;
+}
+
+.post-all-col{
+  display:inline-block;
+}
+
+.bottom-space{
+  width: 100%;
+  bottom: 0;
+  margin-bottom: 25px;
 }

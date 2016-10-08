@@ -1,6 +1,7 @@
   <div class="posts-block"><% @posts.each do |post| %>
     <div class="post-all">
-      <h2><%= link_to post.title, post_path(post.id), class: "post-title"%></h2>
-      <p class="post-body"><%= get_limited_version(post.body) %><p>
+      <div class="post-all-col"><%= image_tag post.image, class: "homepage-post-image"%></div>
+      <div class="post-all-col"><div><h2><%= link_to post.title, post_path(post.id), class: "post-title"%></h2></div>
+      <div><p class="post-body"><%= get_limited_version(post.body) %><p></div></div>
     </div>
   <% end %></div>
