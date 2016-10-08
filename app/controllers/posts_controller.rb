@@ -28,12 +28,12 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post=Post.create post_params
+    @post=Post.create params.require(:post).permit(:title, :body, :image)
     check_text_validation
   end
 
   def post_params
-    params.require(:post).permit(:title, :body)
+    params.require(:post).permit(:title, :body, :image)
   end
 
   def check_text_validation
