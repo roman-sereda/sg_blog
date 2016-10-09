@@ -49,6 +49,12 @@ sample_bodies = ["Nearly four years after the shocking massacre at the Sandy Hoo
       Raymond Haerry Jr. told The Associated Press on Friday that his father ran to
       an anti-aircraft gun on Dec. 7, 1941, but the ammunition was in storage."]
 
+sample_images = ["public/uploads/post/test_images/1.jpg",
+  "public/uploads/post/test_images/2.jpg",
+  "public/uploads/post/test_images/3.jpg",
+  "public/uploads/post/test_images/4.jpg",
+  "public/uploads/post/test_images/5.jpg"]
+
 5.times do |x|
-  Post.create title: sample_titles[x-1], body: sample_bodies[x-1]
+  Post.create title: sample_titles[x], body: sample_bodies[x], image: File.open(sample_images[x])
 end
