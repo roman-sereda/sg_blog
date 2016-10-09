@@ -9,7 +9,7 @@
 
   <div class="post-body"><%= @post.body%>
   <%= button_to "Edit post", edit_post_path, :method => :get, class: "btn btn-default", id: "post_title"%>
-  <%= button_to "Delete post", post_path, class: "btn btn-default", :method => :delete%>
+  <%= button_to "Delete post", post_path, class: "btn btn-default", :method => :delete, data: { confirm: 'Are you sure?' }%>
 
   </div>
 <div class="col-sm-2"></div>
