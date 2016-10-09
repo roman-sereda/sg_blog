@@ -1,7 +1,9 @@
 <div class="col-sm-2"></div>
 <div class="col-sm-8">
   <div style="text-align: center"><h2><%= @post.title%></h2>
-    <%= image_tag @post.image, class: "show-image" %>
+    <% if @post.image? %>
+      <%= image_tag @post.image, class: "show-image" %>
+    <% end %>
     <br><br>
   </div>
 

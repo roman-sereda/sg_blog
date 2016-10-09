@@ -18,11 +18,15 @@ class PostsController < ApplicationController
 
   def destroy
     @post = Post.find(params[:id])
+    @post.remove_image!
     @post.destroy
     redirect_to "/"
   end
 
   def update
+    @post = Post.find(params[:id])
+    @post.remove_image! if params[:remove_image]==1
+
     @post = Post.update(params[:id], post_params)
     check_text_validation
   end
@@ -33,7 +37,7 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:title, :body, :image)
+    params.require(:post).permit(:title, :body, :image, :remove_image)
   end
 
   def check_text_validation
