@@ -6,11 +6,11 @@
     <div class="post-form">
       <p style="color: red"><%= flash[:error] %></p>
 
-      <p><%= post.text_field :title, placeholder: "Enter title here",  id: "title_field", size: "78"%></p>
-      <p><%= post.text_area :body, placeholder: "Enter body here", id: "body_field", size: "78x18" %></p>
+      <p><%= post.text_field :title, placeholder: "Enter title here",  id: "title-field", size: "78"%></p>
+      <p><%= post.text_area :body, placeholder: "Enter body here", id: "body-field", size: "78x18" %></p>
       <p><div style="padding-left: 33%;"><%= post.file_field :image, class: "btn btn-default"%></div></p>
       <p><% if @post.image? %>
-        <label><%= post.check_box :remove_image %>Delete image</label>
+        <label><%= post.check_box :remove_image, class: "checkbox-image"%>Delete image</label>
       <% end %></p>
       <p><%= post.submit choose_button_name(@post.body), class: "btn btn-default"%></p>
     </div>
