@@ -1,6 +1,6 @@
 <%= form_for([@post, @post.comments.new]) do |comment| %>
   <div class="post-form">
-    <p><%= comment.text_area :body %></p>
+    <p><%= comment.text_area :body, placeholder: "Enter comment here", class: "form-control", size: "78" %></p>
     <p><%= comment.submit "Create new comment", class: "btn btn-default", if: "create-comment-btn"%></p>
   </div>
 <% end %>
