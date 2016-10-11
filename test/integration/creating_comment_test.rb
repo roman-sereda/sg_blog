@@ -14,7 +14,7 @@ class CreatingCommentTest < ActiveSupport::TestCase
     fill_in 'comment-area', with: "test-comment"
     click_button "Create new comment"
 
-    assert page.has_selector?"#comment-area"
+    assert page.has_selector?".comment-body"
     assert page.has_content?"test-comment"
   end
 
