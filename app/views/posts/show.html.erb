@@ -4,12 +4,16 @@
     <% if @post.image? %>
       <div class="post-image"><%= image_tag @post.image, class: "show-image" %></div>
     <% end %>
-    <br><br>
+    <br>
   </div>
 
-  <div class="post-body"><%= @post.body%>
+  <div class="post-body"><%= @post.body%></div>
+
+  <br>
+
   <div style="float: left; margin-right: 5px"><%= button_to "Edit post", edit_post_path, :method => :get, class: "btn btn-default", id: "post_title"%></div>
   <%= button_to "Delete post", post_path, class: "btn btn-default", :method => :delete, data: { confirm: 'Are you sure?' }%>
+
 
   <br><br>
 
