@@ -23,6 +23,7 @@
   <div class="comments-block">
     <% @post.comments.each do |comment| %>
       <div class="comment panel panel-default">
+        <p class="comment-created-at"><%= comment.created_at.strftime("%H:%M %Y-%m-%d") %></p>
         <p class="comment-body"><%= comment.body %></p>
       </div>
     <% end %>
