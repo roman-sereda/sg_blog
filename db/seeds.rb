@@ -55,6 +55,15 @@ sample_images = ["public/uploads/post/test_images/1.jpg",
   "public/uploads/post/test_images/4.jpg",
   "public/uploads/post/test_images/5.jpg"]
 
-5.times do |x|
-  Post.create title: sample_titles[x], body: sample_bodies[x], image: File.open(sample_images[x])
+sample_comments = ["London",
+  "is a",
+  "capital",
+  "of Great",
+  "Britain"]
+
+5.times do |post|
+  @post = Post.create title: sample_titles[post], body: sample_bodies[post], image: File.open(sample_images[post])
+  5.times do |comment|
+    @post.comments.create body: sample_comments[comment]
+  end
 end
