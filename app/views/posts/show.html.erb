@@ -11,10 +11,24 @@
   <%= button_to "Edit post", edit_post_path, :method => :get, class: "btn btn-default", id: "post_title"%>
   <%= button_to "Delete post", post_path, class: "btn btn-default", :method => :delete, data: { confirm: 'Are you sure?' }%>
 
-  <%= render "comments/form" %>
-  <% @post.comments.each do |comment| %>
-   <%= comment.body %>
- <% end %>
+  <br><br>
+
+  <div id="post-counter" style="font-size: 20px">
+  <b>Comments:</b>
+    <%= @post.comments.count %>
+  </div>
+
+  <br>
+
+  <div class="comments-block">
+    <% @post.comments.each do |comment| %>
+      <div class="comment">
+        <p><%= comment.body %></p>
+      </div>
+    <% end %>
+  </div>
+
+ <%= render "comments/form" %>
 
 </div>
 <div class="col-sm-2"></div>
