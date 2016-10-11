@@ -6,4 +6,6 @@ class Post < ActiveRecord::Base
   validates :title, length: {minimum: 5, maximum: 100}
   validates :body, length: {minimum: 200}
 
+  has_many :comments
+
 end
