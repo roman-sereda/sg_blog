@@ -11,7 +11,7 @@ class HomePageTest < ActiveSupport::TestCase
   end
 
   def test_visit_home_page_and_see_five_posts
-    assert_equal 5, page.all(".post-all").count
+    assert_equal 5, page.all(".post-full").count
   end
 
   def test_there_is_a_button_create_post
