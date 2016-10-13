@@ -1,38 +1,11 @@
 <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-  <% i = 0%>
-  <% @posts.each do |post| %>
-    <% i+=1%>
-    <%next if i % 3 == 1%>
-    <div class="post-full panel panel-default">
-      <div class="post-image"><%= image_tag post.image, class: "homepage-post-image"%></div>
-      <div><h2><%= link_to post.title, post_path(post.id), class: "post-title"%></h2></div>
-      <div class="post-body"><%= get_limited_version(post.body) %></div>
-    </div>
-  <% end %>
+  <%= render "post", :column_number => 0%>
 </div>
 
 <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-  <% i = 1%>
-  <% @posts.each do |post| %>
-    <% i+=1%>
-    <%next if i % 3 == 1%>
-    <div class="post-full panel panel-default">
-      <div class="post-image"><%= image_tag post.image, class: "homepage-post-image"%></div>
-      <div><h2><%= link_to post.title, post_path(post.id), class: "post-title"%></h2></div>
-      <div class="post-body"><%= get_limited_version(post.body) %></div>
-    </div>
-  <% end %>
+  <%= render "post", :column_number => 1%>
 </div>
 
 <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-  <% i = 2%>
-  <% @posts.each do |post| %>
-    <% i+=1%>
-    <%next if i % 3 == 1%>
-    <div class="post-full panel panel-default">
-      <div class="post-image"><%= image_tag post.image, class: "homepage-post-image"%></div>
-      <div><h2><%= link_to post.title, post_path(post.id), class: "post-title"%></h2></div>
-      <div class="post-body"><%= get_limited_version(post.body) %></div>
-    </div>
-  <% end %>
+  <%= render "post", :column_number => 2%>
 </div>
