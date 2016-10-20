@@ -1,11 +1,12 @@
 class PostsController < ApplicationController
+   before_filter :find_post, only: [:edit, :show, :update, :destroy]
 
   def index
     @posts = Post.all
   end
 
   def show
-    @post=Post.find(params[:id])
+    @comment = Comment.new
   end
 
   def new
@@ -13,18 +14,15 @@ class PostsController < ApplicationController
   end
 
   def edit
-    @post=Post.find(params[:id])
   end
 
   def destroy
-    @post = Post.find(params[:id])
     @post.remove_image!
     @post.destroy
     redirect_to "/"
   end
 
   def update
-    @post = Post.find(params[:id])
     @post.remove_image! if params[:remove_image]==1
 
     @post = Post.update(params[:id], post_params)
@@ -38,6 +36,12 @@ class PostsController < ApplicationController
 
   def post_params
     params.require(:post).permit(:title, :body, :image, :remove_image)
+  end
+
+  private
+
+  def find_post
+    @post = Post.find(params[:id])
   end
 
   def check_text_validation
