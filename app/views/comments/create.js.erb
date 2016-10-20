@@ -1,2 +1,7 @@
 $('#comment_body').val('');
-$("#comments").append("<%= comment_body(@comment) %>");
+<% if @comment.valid? %>
+  $("#comments").append("<%= comment_body(@comment) %>");
+<% else %>
+  document.getElementById('comment-area').style.border='1px double red';
+  $('#comments').append("<%= escape_javascript render(:partial => 'comments/error', :locals => { :c => @comment }) %>");
+<% end %>

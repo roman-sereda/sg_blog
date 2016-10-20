@@ -14,7 +14,6 @@
   <div style="float: left; margin-right: 5px"><%= button_to "Edit post", edit_post_path, :method => :get, class: "btn btn-default", id: "post_title"%></div>
   <%= button_to "Delete post", post_path, class: "btn btn-default", :method => :delete, data: { confirm: 'Are you sure?' }%>
 
-
   <br><br>
 
   <div id="post-counter">
@@ -24,7 +23,7 @@
 
   <br>
 
-  <div class="comments-block" id="comments">
+  <div id="comments">
     <% @post.comments.each do |comment| %>
       <%= comment_body(comment) %>
     <% end %>
