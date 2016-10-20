@@ -1,4 +1,6 @@
+$('#error').remove();
 $('#comment_body').val('');
+
 <% if @comment.valid? %>
   $("#comments").append("<%= comment_body(@comment) %>");
 <% else %>
