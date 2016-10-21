@@ -26,4 +26,10 @@ class CreatingCommentTest < ActiveSupport::TestCase
 
     assert page.has_content?"Comments: 1"
   end
+
+  def test_fill_with_less_then_two_symbols
+    fill_in 'comment-area', with: "a"
+    click_button "Create new comment"
+    assert page.has_selector?"#error"
+  end
 end

@@ -1,7 +1,7 @@
 $('#error').remove();
-$('#comment_body').val('');
 
 <% if @comment.valid? %>
+  $('#comment-area').val('');
   $("#comments").append("<%= comment_body(@comment) %>");
 <% else %>
   document.getElementById('comment-area').style.border='1px double red';

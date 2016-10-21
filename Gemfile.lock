@@ -47,18 +47,22 @@ GEM
       sass (>= 3.3.4)
     builder (3.2.2)
     byebug (9.0.6)
-    capybara (2.10.1)
+    capybara (2.7.1)
       addressable
       mime-types (>= 1.16)
       nokogiri (>= 1.3.3)
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+    capybara-webkit (1.11.1)
+      capybara (>= 2.3.0, < 2.8.0)
+      json
     carrierwave (1.0.0.beta)
       activemodel (>= 4.0.0)
       activesupport (>= 4.0.0)
       mime-types (>= 1.16)
     concurrent-ruby (1.0.2)
+    database_cleaner (1.5.3)
     debug_inspector (0.0.2)
     erubis (2.7.0)
     execjs (2.7.0)
@@ -158,7 +162,9 @@ DEPENDENCIES
   bootstrap-sass
   byebug
   capybara
+  capybara-webkit
   carrierwave (>= 1.0.0.beta, < 2.0)
+  database_cleaner
   jbuilder (~> 2.0)
   jquery-rails
   minitest-rails
