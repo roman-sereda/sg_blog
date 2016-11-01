@@ -12,6 +12,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'bootstrap-sass'
 gem 'carrierwave', '>= 1.0.0.beta', '< 2.0'
+gem 'bcrypt-ruby', '>=3.1.2'
 
 
 group :development, :test do
