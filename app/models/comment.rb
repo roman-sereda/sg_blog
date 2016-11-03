@@ -1,5 +1,6 @@
 class Comment < ActiveRecord::Base
-  belongs_to :posts
+  belongs_to :post
+  belongs_to :user
 
   VALIDATION_FIST_POST = /First post/
   VALIDATION_LINK = /(([a-z0-9\-\.]+)?[a-z0-9\-]+(!?\.[a-z]{2,4}))/

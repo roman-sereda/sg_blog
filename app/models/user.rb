@@ -1,4 +1,8 @@
 class User < ActiveRecord::Base
+
+  has_many :posts, dependent: :destroy
+  has_many :comments
+
   before_save { self.email = email.downcase }
   before_create :create_remember_token
 
@@ -21,8 +25,8 @@ class User < ActiveRecord::Base
 
   private
 
-    def create_remember_token
-      self.remember_token = User.encrypt(User.new_remember_token)
-    end
+  def create_remember_token
+    self.remember_token = User.encrypt(User.new_remember_token)
+  end
 
 end
