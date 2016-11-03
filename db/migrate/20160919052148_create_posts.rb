@@ -5,5 +5,6 @@ class CreatePosts < ActiveRecord::Migration
       post.string :body
       post.integer :user_id
     end
+    add_index :posts, [:user_id, :created_at]
   end
 end

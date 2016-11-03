@@ -61,8 +61,10 @@ sample_comments = ["London",
   "of Great",
   "Britain"]
 
+@user = User.create(name: "admin", email: "admin@example.com", password: "admminadmin", password_confirmation: "adminadmin", admin: true)
+
 5.times do |post|
-  @post = Post.create title: sample_titles[post], body: sample_bodies[post], image: File.open(sample_images[post])
+  @post = @user.posts.create title: sample_titles[post], body: sample_bodies[post], image: File.open(sample_images[post], user_id: 1)
   5.times do |comment|
     @post.comments.create body: sample_comments[comment]
   end
