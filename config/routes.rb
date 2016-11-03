@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   match '/signin',  to: 'sessions#new',         via: 'get'
   match '/signout', to: 'sessions#destroy',     via: 'delete'
 
+  resources :posts, only: [:create, :destroy]
   resources :posts do
     resources :comments
   end
