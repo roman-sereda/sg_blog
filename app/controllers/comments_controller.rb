@@ -2,7 +2,16 @@ class CommentsController < ApplicationController
   def create
     @post = Post.find(params[:post_id])
     @comment = @post.comments.create(comment_params)
-    @comment.save
+    @comment.user = current_user
+    if @comment.save
+      redirect_to @post
+    else
+      flash.now[:danger] = "error"
+    end
+  end
+
+  def show
+    @user = User.find(params[:user_id])
   end
 
   def comment_params

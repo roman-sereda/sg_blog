@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
-   before_filter :find_post, only: [:edit, :show, :update, :destroy]
+  before_action :signed_in_user, only: [:create, :destroy]
+  before_filter :find_post, only: [:edit, :show, :update, :destroy]
 
   def index
     @posts = Post.all
@@ -30,26 +31,23 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post=Post.create params.require(:post).permit(:title, :body, :image)
-    check_text_validation
+    @post = current_user.posts.build(post_params)
+    if @post.save
+      flash[:success] = "Post created!"
+      redirect_to root_url
+    else
+      redirect_to new_post_path
+    end
   end
 
   def post_params
-    params.require(:post).permit(:title, :body, :image, :remove_image)
+    params.require(:post).permit(:title, :body, :user_id)
   end
 
   private
 
   def find_post
     @post = Post.find(params[:id])
-  end
-
-  def check_text_validation
-    if @post.valid?
-      redirect_to post_path(@post.id)
-    else
-      redirect_to new_post_path, :flash => { :error => "You entered wrong data" }
-    end
   end
 
 end
