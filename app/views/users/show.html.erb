@@ -3,9 +3,25 @@
   <aside class="span4">
     <section>
       <h1>
-        <%= gravatar_for @user %>
         <%= @user.name %>
+        <%= link_to gravatar_for(current_user), current_user %>
       </h1>
     </section>
+    <div class="span8">
+  </div>
+  <% if @user.posts.any? %>
+     <h3>Posts (<%= @user.posts.count %>)</h3>
+     <ol class="posts">
+       <% @user.posts.each do |post|%>
+       <li>
+        <span class="title"><%= post.title %></span>
+        <span class="timestamp">
+          Posted <%= time_ago_in_words(post.created_at) %> ago.
+        </span>
+      </li>
+      <% end %>
+     </ol>
+     <%= will_paginate @posts %>
+   <% end %>
   </aside>
 </div>

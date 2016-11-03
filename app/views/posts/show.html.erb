@@ -25,6 +25,9 @@
 
   <div id="comments">
     <% @post.comments.each do |comment| %>
+      <% if(comment.user.respond_to?('name'))%>
+        <%= comment.user.name %>
+      <% end %>
       <%= comment_body(comment) %>
     <% end %>
   </div>
@@ -32,4 +35,6 @@
  <%= render "comments/form" %>
 
 </div>
+
+
 <div class="col-sm-2"></div>
