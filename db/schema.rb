@@ -23,10 +23,10 @@ ActiveRecord::Schema.define(version: 20161102211559) do
   create_table "posts", force: :cascade do |t|
     t.string   "title"
     t.string   "body"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "image"
-    t.string   "avatar"
   end
 
   create_table "users", force: :cascade do |t|

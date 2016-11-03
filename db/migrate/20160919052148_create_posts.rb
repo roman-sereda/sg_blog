@@ -3,6 +3,7 @@ class CreatePosts < ActiveRecord::Migration
     create_table :posts do |post|
       post.string :title
       post.string :body
+      post.integer :user_id
     end
   end
 end
