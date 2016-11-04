@@ -1,10 +1,9 @@
 class Post < ActiveRecord::Base
 
   belongs_to :user
+  has_many :comments
 
   default_scope -> { order('created_at DESC') }
-
-  has_many :comments
 
   validates_presence_of :title, :body
   mount_uploader :image, ImageUploader
