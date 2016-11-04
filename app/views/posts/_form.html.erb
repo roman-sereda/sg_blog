@@ -1,19 +1,19 @@
 <div class="col-sm-2"></div>
 <div class="col-sm-8" style="text-align: center">
-  <%= form_for[@user, @post], remote: true do |post| %>
-
+  <%= form_for @post, remote: true do |post| %>
     <div class="post-form">
-      <p style="color: red"><%= flash[:error] %></p>
+      <%= render 'shared/error_messages', object: post.object %>
 
-      <p><%= post.text_field :title, placeholder: "Enter title here", class: "form-control",  id: "title-field", size: "78"%></p>
-      <p><%= post.text_area :body, placeholder: "Enter body here", class: "form-control", id: "body-field", size: "78x18" %></p>
-      <p><div style="padding-left: 33%;"><%= post.file_field :image, class: "btn btn-default"%></div></p>
-      <p><% if @post.image? %>
+      <%= post.text_field :title, placeholder: "Enter title here", class: "form-control",  id: "title-field", size: "78"%>
+      <br>
+      <%= post.text_area :body, placeholder: "Enter body here", class: "form-control", id: "body-field", size: "78x18" %>
+      <br>
+      <div style="padding-left: 33%;"><%= post.file_field :image, class: "btn btn-default"%></div>
+      <br>
+      <% if @post.image? %>
         <label><%= post.check_box :remove_image, class: "checkbox-image"%>Delete image</label>
-      <% end %></p>
-      <p><%= post.hidden_field :user_id, value: @user.id %><p>
-      <p><%= post.submit choose_button_name(@post.body), class: "btn btn-default"%></p>
+      <% end %>
+      <%= post.submit choose_button_name(@post.body), class: "btn btn-default"%>
     </div>
-
   <% end %>
 </div>

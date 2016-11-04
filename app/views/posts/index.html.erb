@@ -1,11 +1,18 @@
-<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-  <%= render "post", :column_number => 0%>
-</div>
-
-<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-  <%= render "post", :column_number => 1%>
-</div>
-
-<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-  <%= render "post", :column_number => 2%>
+<div class="container-fluid bg-3">
+    <% @posts.each do |post| %>
+      <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+        <div class="post-full panel panel-default">
+          <div class="post-image">
+            <%= image_tag post.image, class: "homepage-post-image"%>
+          </div>
+          <div>
+            <h2><%= link_to post.title, post_path(post.id), class: "post-title"%></h2>
+          </div>
+          <div class="post-body">
+            <%= get_limited_version(post.body) %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+    <div class="pager"><%= will_paginate @posts %></div>
 </div>

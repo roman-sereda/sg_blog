@@ -1,10 +1,13 @@
 .comment-body{
-  margin: 5px 0px 5px 10px;
   word-wrap: break-word;
 }
 
 .comment-created-at{
-  margin: 5px 0px 0px 10px;
-  font-size: 10px;
   color: gray;
+}
+
+.comment-image{
+  margin-right: 10px;
+  max-width: 50px;
+  max-height: 50px;
 }

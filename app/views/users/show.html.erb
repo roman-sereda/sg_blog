@@ -1,27 +1,28 @@
-<% provide(:title, @user.name) %>
-<div class="row">
-  <aside class="span4">
-    <section>
-      <h1>
-        <%= @user.name %>
-        <%= link_to gravatar_for(current_user), current_user %>
-      </h1>
-    </section>
-    <div class="span8">
+<div class="col-sm-2"></div>
+<div class="col-sm-8" style="text-align: center">
+  <div class="post-full panel panel-default">
+    <table>
+      <tr>
+        <td class="profile-left-bar">
+          <div class="profile-avatar"><%= image_tag @user.avatar, class: "profile-avatar" %></div>
+          <br>
+          <h1><%= @user.name %></h1>
+        </td>
+        <td class="profile-center-bar">
+          <% if @user.posts.any? %>
+             <h3>Posts (<%= @user.posts.count %>)</h3>
+               <% @user.posts.each do |post|%>
+                <p><span class="title"><%= link_to post.title, post %></span>
+                <span class="timestamp">
+                  Posted <%= time_ago_in_words(post.created_at) %> ago.
+                </span></p>
+              <% end %>
+             <%= will_paginate @posts %>
+           <% end %>
+         </div>
+       </td>
+      </tr>
+    </table>
   </div>
-  <% if @user.posts.any? %>
-     <h3>Posts (<%= @user.posts.count %>)</h3>
-     <ol class="posts">
-       <% @user.posts.each do |post|%>
-       <li>
-        <span class="title"><%= post.title %></span>
-        <span class="timestamp">
-          Posted <%= time_ago_in_words(post.created_at) %> ago.
-        </span>
-      </li>
-      <% end %>
-     </ol>
-     <%= will_paginate @posts %>
-   <% end %>
-  </aside>
 </div>
+<div class="col-sm-2"></div>

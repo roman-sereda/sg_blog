@@ -1,40 +1,39 @@
 <div class="col-sm-2"></div>
 <div class="col-sm-8">
-  <div style="text-align: center" class="post-title"><h2><%= @post.title%></h2>
-    <% if @post.image? %>
-      <div class="post-image"><%= image_tag @post.image, class: "show-image" %></div>
-    <% end %>
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <h2><%= @post.title%></h2>
+        <% if @post.image? %>
+          <div class="post-image"><%= image_tag @post.image, class: "show-image" %></div>
+        <% end %>
+        <br>
+        <div class="post-body">
+          <%= @post.body%>
+        </div>
+      </div>
+    </div>
     <br>
-  </div>
 
-  <div class="post-body"><%= @post.body%></div>
-
-  <br>
-
-  <div style="float: left; margin-right: 5px"><%= button_to "Edit post", edit_post_path, :method => :get, class: "btn btn-default", id: "post_title"%></div>
-  <%= button_to "Delete post", post_path, class: "btn btn-default", :method => :delete, data: { confirm: 'Are you sure?' }%>
-
+    <div style="float: left; margin-right: 5px">
+      <%= button_to "Edit post", edit_post_path, :method => :get, class: "btn btn-default", id: "post_title"%></div>
+    <%= button_to "Delete post", post_path, class: "btn btn-default", :method => :delete, data: { confirm: 'Are you sure?' }%>
   <br><br>
 
   <div id="post-counter">
     <b>Comments:</b>
     <%= @post.comments.count %>
   </div>
-
   <br>
-
   <div id="comments">
     <% @post.comments.each do |comment| %>
-      <% if(comment.user.respond_to?('name'))%>
-        <%= comment.user.name %>
-      <% end %>
-      <%= comment_body(comment) %>
+      <%= render(:partial =>  "comments/comment", :locals => {:comment => comment})%>
     <% end %>
   </div>
-
- <%= render "comments/form" %>
-
+  <% if(current_user!=nil)%>
+    <%= render "comments/form" %>
+  <% else%>
+    <div class="alert alert-danger" id="error">Please, login to comment this post</div>
+  <% end %>
 </div>
-
 
 <div class="col-sm-2"></div>
