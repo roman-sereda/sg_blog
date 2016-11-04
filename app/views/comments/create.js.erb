@@ -2,7 +2,7 @@ $('#error').remove();
 
 <% if @comment.valid? %>
   $('#comment-area').val('');
-  $("#comments").append("<%= comment_body(@comment) %>");
+  $("#comments").append("<%= escape_javascript render(:partial => 'comments/comment', :locals => { :comment => @comment }) %>");
 <% else %>
   document.getElementById('comment-area').style.border='1px double red';
   $('#comments').append("<%= escape_javascript render(:partial => 'comments/error', :locals => { :c => @comment }) %>");

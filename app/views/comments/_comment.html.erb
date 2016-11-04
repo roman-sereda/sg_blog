@@ -1,0 +1,22 @@
+<div class='panel panel-default'>
+  <div class="panel-body">
+  <table>
+    <tr>
+      <td>
+        <% if(comment.user.respond_to?("avatar")) %>
+          <%= image_tag comment.user.avatar, class: "comment-image"%>
+        <% end %>
+      </td>
+      <td>
+        <span class="comments">
+        <span class="comment-created-at"><%= comment.created_at.strftime("%H:%M %Y-%m-%d")%></span>
+        <% if(comment.user.respond_to?("name")) %>
+          <%= comment.user.name %>:
+        <% end %>
+        <div class="comment-body"><%= comment.body %></div>
+        </span>
+      </td>
+    </tr>
+  </table>
+  </div>
+</div>

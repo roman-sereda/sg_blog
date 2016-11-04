@@ -1,5 +1,7 @@
 module CommentsHelper
   def comment_body comment
-    "<div class='comment panel panel-default'><p class='comment-created-at'>#{}#{comment.created_at.strftime("%H:%M %Y-%m-%d")}</p><p class='comment-body'>#{comment.body}</p></div>".html_safe
+        "<span class='comment-created-at'>#{comment.created_at.strftime("%H:%M %Y-%m-%d")}</span>".html_safe +
+        "#{ comment.user.name } ".html_safe +
+        "<div class='comment-body'>#{comment.body}</div>".html_safe
   end
 end
