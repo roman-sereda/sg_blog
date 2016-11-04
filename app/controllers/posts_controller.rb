@@ -3,7 +3,7 @@ class PostsController < ApplicationController
   before_filter :find_post, only: [:edit, :show, :update, :destroy]
 
   def index
-    @posts = Post.all
+    @posts = Post.paginate(page: params[:page], :per_page => 12)
   end
 
   def show
@@ -24,10 +24,13 @@ class PostsController < ApplicationController
   end
 
   def update
-    @post.remove_image! if params[:remove_image]==1
-
-    @post = Post.update(params[:id], post_params)
-    check_text_validation
+    @post = current_user.posts.build(post_params)
+    if @post.save
+      flash[:success] = "Post updated!"
+      redirect_to root_url
+    else
+      redirect_to new_post_path
+    end
   end
 
   def create
