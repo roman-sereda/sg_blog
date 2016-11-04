@@ -55,17 +55,26 @@ sample_images = ["public/uploads/post/test_images/1.jpg",
   "public/uploads/post/test_images/4.jpg",
   "public/uploads/post/test_images/5.jpg"]
 
-sample_comments = ["London",
-  "is a",
-  "capital",
-  "of Great",
-  "Britain"]
+  sample_user_images = ["public/uploads/user/test_images/1.jpg",
+    "public/uploads/user/test_images/2.jpg",
+    "public/uploads/user/test_images/3.jpg",
+    "public/uploads/user/test_images/4.jpg",
+    "public/uploads/user/test_images/5.jpg"]
 
-@user = User.create(name: "admin", email: "admin@example.com", password: "admminadmin", password_confirmation: "adminadmin", admin: true)
+sample_comments = ["Hey buddy, I think you've got the wrong door, the leather club's two blocks down.",
+  "Fuck↗You↘",
+  "Oh, Fuck♂You leather man. Maybe you and I should settle it right here on the ring if you think your so tough.",
+  "Oh yea? I'll kick your ass!",
+  "Ha! Yeah right man. Let's go! Why don't you get out of that leather stuff? I'll strip down out of this and we'll settle it right here in the ring. What do you say?"]
 
-5.times do |post|
-  @post = @user.posts.create title: sample_titles[post], body: sample_bodies[post], image: File.open(sample_images[post], user_id: 1)
-  5.times do |comment|
-    @post.comments.create body: sample_comments[comment]
+User.create(name: "admin", email: "admin@example.com", password: "admminadmin", password_confirmation: "adminadmin", admin: true)
+
+5.times do |count|
+  @user = User.create(name: "user#{count}", email: "admin#{count}@example.com", password: "password#{count}", password_confirmation: "password#{count}", avatar: File.open(sample_user_images[count]), admin: false)
+  5.times do |post|
+    @post = @user.posts.create title: sample_titles[post], body: sample_bodies[post], image: File.open(sample_images[post]), user_id: post+1
+    5.times do |comment|
+      @post.comments.create body: sample_comments[comment], user_id: comment+1
+    end
   end
 end
