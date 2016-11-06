@@ -2,7 +2,8 @@ require 'test_helper'
 
 class CreatingCommentTest < ActiveSupport::TestCase
   def setup
-    @post = FactoryGirl.create(:user, :with_post)
+    FactoryGirl.create(:user)
+    @post = FactoryGirl.create(:post, :with_comment)
     visit "/posts/#{@post.id}"
   end
 
@@ -10,26 +11,10 @@ class CreatingCommentTest < ActiveSupport::TestCase
     assert page.has_content? "Please, login to comment this post"
   end
 
-  def test_create_post_and_watch_body
-    fill_in 'comment-area', with: "test-comment"
-    click_button "Create new comment"
-
-    assert page.has_selector?".comment-body"
-    assert page.has_content?"test-comment"
+  def test_there_is_author_avatar
+    assert page.has_selector?(".comment-image"), "User has no image in comment"
+    assert page.has_selector?(".comment-created-at"), "User has no data in comment"
+    assert page.has_selector?(".comment-user"), "User has no author in comment"
   end
 
-  def test_comment_counter
-    assert page.has_content?"Comments: 0"
-
-    fill_in 'comment-area', with: "test-comment"
-    click_button "Create new comment"
-
-    assert page.has_content?"Comments: 1"
-  end
-
-  def test_fill_with_less_then_two_symbols
-    fill_in 'comment-area', with: "a"
-    click_button "Create new comment"
-    assert page.has_selector?"#error"
-  end
 end

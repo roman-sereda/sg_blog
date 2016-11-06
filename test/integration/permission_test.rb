@@ -11,7 +11,6 @@ class PermissionTest < ActiveSupport::TestCase
     assert_not page.has_content?("Edit"), "Unloged user see Edit button"
     assert_not page.has_content?("Delete"), "Unloged user see Delete button"
 
-
   end
 
   def test_user_cannot_change_other_user_post
@@ -31,7 +30,5 @@ class PermissionTest < ActiveSupport::TestCase
     visit "/users"
     assert_not page.has_content?("delete"), "User can delete another user"
   end
-
-
 
 end

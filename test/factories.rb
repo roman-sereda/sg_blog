@@ -18,6 +18,12 @@ FactoryGirl.define do
     sequence(:user_id) { "1"}
   end
 
+  trait :with_comment do
+    after :create do |post|
+      FactoryGirl.create_list :comment, 1, :post => post
+    end
+  end
+
   trait :with_post do
     after :create do |user|
       FactoryGirl.create_list :post, 1, :user => user

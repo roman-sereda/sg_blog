@@ -11,7 +11,7 @@
         <span class="comments">
         <span class="comment-created-at"><%= comment.created_at.strftime("%H:%M %Y-%m-%d")%></span>
         <% if(comment.user.respond_to?("name")) %>
-          <%= link_to comment.user.name, comment.user %>:
+          <%= link_to comment.user.name, comment.user, class: "comment-user"%>:
         <% end %>
         <div class="comment-body"><%= comment.body %></div>
         </span>

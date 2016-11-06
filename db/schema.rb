@@ -41,8 +41,8 @@ ActiveRecord::Schema.define(version: 20161103191059) do
     t.string   "remember_token"
     t.boolean  "admin",           default: false
     t.string   "avatar"
-    t.float    "latitude"
-    t.float    "longitude"
+    t.float    "latitude",        default: 0.0
+    t.float    "longitude",       default: 0.0
     t.string   "adress"
   end
 
