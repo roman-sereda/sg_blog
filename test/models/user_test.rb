@@ -34,8 +34,14 @@ class UserTest < ActiveSupport::TestCase
   end
 
   def test_users_email_sensitive
-    @user.update_attributes(email: "TeSt@TeSt.CoM")
-    assert_equal @user.email, "test@test.com", "Email sensitive fail"
+    emails.each do |email|
+      @user.update_attributes(email: email)
+      assert_equal @user.email, "test@test.com", "Email sensitive fail"
+    end
+  end
+
+  def emails
+    ["TeSt@TeSt.CoM", "TEST@test.com", "test@TEST.COM"]
   end
 
 end
