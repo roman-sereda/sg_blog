@@ -15,6 +15,7 @@ gem 'geocoder'
 gem 'will_paginate'
 gem 'carrierwave', '>= 1.0.0.beta', '< 2.0'
 gem 'bcrypt-ruby', '>=3.1.2'
+gem 'gmaps4rails'
 
 
 group :development, :test do
@@ -24,7 +25,6 @@ group :development, :test do
 end
 
 group :test do
- gem 'cucumber-rails', '>=1.4.0', :require => false
  gem 'factory_girl_rails', '>=4.2.1'
  gem "capybara"
  gem "capybara-webkit"
