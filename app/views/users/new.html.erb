@@ -1,18 +1,18 @@
 <div class="col-sm-4"></div>
 <div class="col-sm-4" style="text-align: center">
   <h1>Sign up</h1>
-    <%= form_for(@user) do |f| %>
+    <%= form_for @user do |f| %>
     <div class="post-form">
 
       <%= render 'shared/error_messages', object: f.object %>
       <br>
-      <%= f.text_field :name, placeholder: "Enter name", class: "form-control" %>
+      <%= f.text_field :name, placeholder: "Enter name", class: "form-control", id: "name-field" %>
       <br>
-      <%= f.text_field :email, placeholder: "Enter email", class: "form-control" %>
+      <%= f.text_field :email, placeholder: "Enter email", class: "form-control", id: "email-field" %>
       <br>
-      <%= f.password_field :password, placeholder: "Enter password", class: "form-control" %>
+      <%= f.password_field :password, placeholder: "Enter password", class: "form-control", id: "password-field" %>
       <br>
-      <%= f.password_field :password_confirmation, placeholder: "Confirm password", class: "form-control" %>
+      <%= f.password_field :password_confirmation, placeholder: "Confirm password", class: "form-control", id: "password-c-field" %>
       <br>
       <%= f.label :avatar %>:
       <%= f.file_field :avatar %>

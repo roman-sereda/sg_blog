@@ -5,9 +5,9 @@
   <h1>Sign in</h1>
     <%= form_for(:session, url: sessions_path) do |f| %>
       <br>
-      <%= f.text_field :email, placeholder: "Enter email", class: "form-control" %>
+      <%= f.text_field :email, placeholder: "Enter email", class: "form-control", id:"email-field" %>
       <br>
-      <%= f.password_field :password, placeholder: "Enter password", class: "form-control" %>
+      <%= f.password_field :password, placeholder: "Enter password", class: "form-control", id: "password-field" %>
       <br>
       <%= f.submit "Sign in", class: "btn btn-large btn-primary" %>
     <% end %>

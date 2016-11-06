@@ -5,16 +5,18 @@
     <%= form_for(@user) do |f| %>
       <%= render 'shared/error_messages', object: f.object %>
       <br>
-      <%= f.text_field :name, placeholder: "Enter name", class: "form-control" %>
+      <%= f.text_field :name, placeholder: "Enter name", class: "form-control", id: "name-field"%>
       <br>
-      <%= f.text_field :email, placeholder: "Enter email", class: "form-control" %>
+      <%= f.text_field :email, placeholder: "Enter email", class: "form-control", id: "email-field" %>
       <br>
-      <%= f.password_field :password, placeholder: "Enter password", class: "form-control" %>
+      <%= f.text_field :adress, placeholder: "Enter your location", class: "form-control", id: "adress-field" %>
       <br>
-      <%= f.password_field :password_confirmation, placeholder: "Confirm password", class: "form-control" %>
+      <%= f.password_field :password, placeholder: "Enter password", class: "form-control", id: "password-field" %>
+      <br>
+      <%= f.password_field :password_confirmation, placeholder: "Confirm password", class: "form-control", id: "password-c-field" %>
       <br>
       <%= f.label :avatar %>:
-      <%= f.file_field :avatar %>
+      <%= f.file_field :avatar, id: "image-field" %>
       <br>
       <%= f.submit "Save changes", class: "btn btn-large btn-primary" %>
     <% end %>

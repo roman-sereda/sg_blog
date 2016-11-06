@@ -1,6 +1,6 @@
 <div class="col-sm-2"></div>
 <div class="col-sm-8" style="text-align: center">
-  <%= form_for @post, remote: true do |post| %>
+  <%= form_for @post, :authenticity_token => true do |post| %>
     <div class="post-form">
       <%= render 'shared/error_messages', object: post.object %>
 

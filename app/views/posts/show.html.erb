@@ -14,10 +14,12 @@
     </div>
     <br>
 
-    <div style="float: left; margin-right: 5px">
+    <% if (signed_in? && (current_user == @post.user || current_user.admin?))%>
+      <div style="float: left; margin-right: 5px">
       <%= button_to "Edit post", edit_post_path, :method => :get, class: "btn btn-default", id: "post_title"%></div>
-    <%= button_to "Delete post", post_path, class: "btn btn-default", :method => :delete, data: { confirm: 'Are you sure?' }%>
-  <br><br>
+      <%= button_to "Delete post", post_path, class: "btn btn-default", :method => :delete, data: { confirm: 'Are you sure?' }%>
+      <br><br>
+    <% end %>
 
   <div id="post-counter">
     <b>Comments:</b>

@@ -1,7 +1,7 @@
-<div class="container-fluid bg-3">
+<div class="container-fluid bg-3 all-posts">
     <% @posts.each do |post| %>
       <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-        <div class="post-full panel panel-default">
+        <div class="post-full panel panel-default post">
           <div class="post-image">
             <%= image_tag post.image, class: "homepage-post-image"%>
           </div>
@@ -11,6 +11,7 @@
           <div class="post-body">
             <%= get_limited_version(post.body) %>
           </div>
+          <div class="author"><i>by <%= link_to post.user.name, post.user %></i></div>
         </div>
       </div>
     <% end %>
