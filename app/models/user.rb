@@ -1,5 +1,8 @@
 class User < ActiveRecord::Base
 
+  geocoded_by :adress
+  after_validation :geocode
+
   has_many :posts, dependent: :destroy
   has_many :comments
 
