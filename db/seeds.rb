@@ -55,11 +55,11 @@ sample_images = ["public/uploads/post/test_images/1.jpg",
   "public/uploads/post/test_images/4.jpg",
   "public/uploads/post/test_images/5.jpg"]
 
-  sample_user_images = ["public/uploads/user/test_images/2.jpg",
-    "public/uploads/user/test_images/5.jpg",
+  sample_user_images = ["public/uploads/user/test_images/1.jpg",
     "public/uploads/user/test_images/2.jpg",
-    "public/uploads/user/test_images/5.jpg",
-    "public/uploads/user/test_images/2.jpg"]
+    "public/uploads/user/test_images/3.jpg",
+    "public/uploads/user/test_images/4.jpg",
+    "public/uploads/user/test_images/5.jpg"]
 
 sample_comments = ["Hey buddy, I think you've got the wrong door, the leather club's two blocks down.",
   "Fuck↗You↘",
