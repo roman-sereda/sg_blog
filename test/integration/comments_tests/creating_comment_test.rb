@@ -1,13 +1,13 @@
-require "test_helper"
+require 'test_helper'
 
 class CreatingCommentTest < ActiveSupport::TestCase
   def setup
-    Post.create title: "AAAAAAAAAA", body: "A"*200, image: File.open("public/uploads/post/test_images/1.jpg")
-    visit "/posts/1"
+    @post = FactoryGirl.create(:user, :with_post)
+    visit "/posts/#{@post.id}"
   end
 
   def test_see_create_new_post_button
-    assert page.has_button?"Create new comment"
+    assert page.has_content? "Please, login to comment this post"
   end
 
   def test_create_post_and_watch_body

@@ -1,8 +1,8 @@
-require "test_helper"
+require 'test_helper'
 
 class UpdatingPostTest < ActiveSupport::TestCase
   def setup
-    Post.create title: "AAAAAAAAAA", body: "A"*200, image: File.open("public/uploads/post/test_images/1.jpg")
+    signin(FactoryGirl.create :user, :with_post )
     visit "/posts/1"
   end
 

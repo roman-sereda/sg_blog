@@ -1,8 +1,8 @@
-require "test_helper"
+require 'test_helper'
 
 class HomePageTest < ActiveSupport::TestCase
   def setup
-    5.times {Post.create title: "AAAAAAAAAA", body: "A"*200, image: File.open("public/uploads/post/test_images/1.jpg")}
+    signin(FactoryGirl.create(:user, :with_posts))
     visit "/"
   end
 
@@ -11,7 +11,7 @@ class HomePageTest < ActiveSupport::TestCase
   end
 
   def test_visit_home_page_and_see_five_posts
-    assert_equal 5, page.all(".post-full").count
+    assert_equal 5, page.all(".post").count
   end
 
   def test_there_is_a_button_create_post

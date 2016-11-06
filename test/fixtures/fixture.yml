@@ -1,0 +1,5 @@
+user:
+  name: test user
+  email: testuser@test.user
+  password: testusertestuser
+  password_confirmation: <%= User.digest('password') %>
