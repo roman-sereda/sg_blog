@@ -41,6 +41,9 @@ ActiveRecord::Schema.define(version: 20161103191059) do
     t.string   "remember_token"
     t.boolean  "admin",           default: false
     t.string   "avatar"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.string   "adress"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
