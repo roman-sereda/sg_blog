@@ -8,10 +8,12 @@
 </head>
 <body>
   <%= render "shared/navbar" %>
-  <%= yield %>
+
   <% flash.each do |key, value| %>
-    <div class="alert alert-danger"><%= value %></div>
+    <div class="alert alert-success" style="top: 0"><%= value %></div>
   <% end %>
+
+  <%= yield %>
   <div class="debug_dump"><%= debug(params) if Rails.env.development? %></div>
 </body>
 </html>

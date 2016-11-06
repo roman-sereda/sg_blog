@@ -22,35 +22,20 @@
                 </span></p>
               <% end %>
              <%= will_paginate @posts %>
-           <% end %>
-         </div>
-         <%= @user.latitude%>
-
-         <div style='width: 800px;'>
-           <div id="map" style='width: 800px; height: 400px;'></div>
-         </div>
-
-         <script>
-         handler = Gmaps.build('Google');
-         handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
-         markers = handler.addMarkers([
-           {
-             "lat": 0,
-             "lng": 0,
-             "picture": {
-               "url": "http://people.mozilla.com/~faaborg/files/shiretoko/firefoxIcon/firefox-32.png",
-               "width":  32,
-               "height": 32
-             },
-             "infowindow": "hello!"
-           }
-         ]);
-         handler.bounds.extendWith(markers);
-         handler.fitMapToBounds();
-         });
-         </script>
+          <% end %>
+          <br><br><br><br>
+          <div id="map" style='width: 600px; height: 400px;'>
 
 
+            <script>
+              $(document).ready(function(){
+                  var user = <%= raw @user.to_json %>
+                  get_user_geolocation(user);
+                });
+            </script>
+
+
+          </div>
        </td>
       </tr>
     </table>

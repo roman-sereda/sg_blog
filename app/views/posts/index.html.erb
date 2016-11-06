@@ -11,7 +11,7 @@
           <div class="post-body">
             <%= get_limited_version(post.body) %>
           </div>
-          <div class="author"><i>by <%= link_to post.user.name, post.user %></i></div>
+          <div class="author"><i>by <%= link_to post.user.name, post.user, class: "author-name" %></i></div>
         </div>
       </div>
     <% end %>

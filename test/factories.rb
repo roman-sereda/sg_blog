@@ -5,7 +5,6 @@ FactoryGirl.define do
     sequence(:email) { |n| "Person_#{n}@gmail.com"}
     password "password"
     password_confirmation "password"
-
   end
 
   factory :post do
@@ -28,6 +27,12 @@ FactoryGirl.define do
   trait :with_posts do
     after :create do |user|
       FactoryGirl.create_list :post, 5, :user => user
+    end
+  end
+
+  trait :with_many_posts do
+    after :create do |user|
+      FactoryGirl.create_list :post, 25, :user => user
     end
   end
 

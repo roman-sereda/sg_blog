@@ -25,8 +25,17 @@ class CreatingPostTest < ActiveSupport::TestCase
    district located along the Potomac River on the countrys East Coast.'
 
     click_button "Create post"
-    assert !(page.has_selector? 'error_explanation')
+    assert !(page.has_selector? 'error_explanation'), "Created true post with error"
 
+    assert page.has_selector?('.post-body'), "Created post without body"
+    assert page.has_selector?('.post-title'), "Created post without title"
+
+  end
+
+  def test_adding_image
+    @post = FactoryGirl.create(:user, :with_post)
+    visit "/posts/1"
+    assert page.has_selector?('.post-image'), "Created post without image"
   end
 
 end
